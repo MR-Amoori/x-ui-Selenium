@@ -39,9 +39,14 @@
             this.gbNeeds = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.txtTo = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNumberConfig = new System.Windows.Forms.TextBox();
+            this.btnGetConfigs = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtTotalTraffic = new System.Windows.Forms.TextBox();
             this.bgInformation.SuspendLayout();
             this.gbNeeds.SuspendLayout();
@@ -50,15 +55,17 @@
             // bgInformation
             // 
             this.bgInformation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bgInformation.Controls.Add(this.txtNumberConfig);
             this.bgInformation.Controls.Add(this.txtPassword);
             this.bgInformation.Controls.Add(this.txtUsername);
+            this.bgInformation.Controls.Add(this.label4);
             this.bgInformation.Controls.Add(this.txtUrl);
             this.bgInformation.Controls.Add(this.lblPassword);
             this.bgInformation.Controls.Add(this.lblUsername);
             this.bgInformation.Controls.Add(this.lblUrl);
             this.bgInformation.Location = new System.Drawing.Point(13, 12);
             this.bgInformation.Name = "bgInformation";
-            this.bgInformation.Size = new System.Drawing.Size(336, 115);
+            this.bgInformation.Size = new System.Drawing.Size(336, 143);
             this.bgInformation.TabIndex = 0;
             this.bgInformation.TabStop = false;
             this.bgInformation.Text = "Panel Information : ";
@@ -120,10 +127,10 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(10, 255);
+            this.btnStart.Location = new System.Drawing.Point(6, 306);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(337, 33);
-            this.btnStart.TabIndex = 5;
+            this.btnStart.TabIndex = 8;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -132,14 +139,16 @@
             // 
             this.gbNeeds.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gbNeeds.Controls.Add(this.txtTotalTraffic);
+            this.gbNeeds.Controls.Add(this.txtName);
             this.gbNeeds.Controls.Add(this.txtTo);
+            this.gbNeeds.Controls.Add(this.label5);
             this.gbNeeds.Controls.Add(this.txtFrom);
-            this.gbNeeds.Controls.Add(this.label3);
+            this.gbNeeds.Controls.Add(this.lbl);
             this.gbNeeds.Controls.Add(this.label2);
             this.gbNeeds.Controls.Add(this.label1);
-            this.gbNeeds.Location = new System.Drawing.Point(13, 133);
+            this.gbNeeds.Location = new System.Drawing.Point(13, 161);
             this.gbNeeds.Name = "gbNeeds";
-            this.gbNeeds.Size = new System.Drawing.Size(334, 116);
+            this.gbNeeds.Size = new System.Drawing.Size(334, 139);
             this.gbNeeds.TabIndex = 6;
             this.gbNeeds.TabStop = false;
             this.gbNeeds.Text = "Need : ";
@@ -162,14 +171,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "To :";
             // 
-            // label3
+            // lbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 14);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Total Traffic :";
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(20, 84);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(46, 14);
+            this.lbl.TabIndex = 1;
+            this.lbl.Text = "Name :";
             // 
             // txtFrom
             // 
@@ -177,7 +186,8 @@
             this.txtFrom.Location = new System.Drawing.Point(92, 25);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(236, 22);
-            this.txtFrom.TabIndex = 5;
+            this.txtFrom.TabIndex = 4;
+            this.txtFrom.Text = "2";
             // 
             // txtTo
             // 
@@ -185,22 +195,69 @@
             this.txtTo.Location = new System.Drawing.Point(92, 53);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(236, 22);
-            this.txtTo.TabIndex = 6;
+            this.txtTo.TabIndex = 5;
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtName.Location = new System.Drawing.Point(92, 81);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(236, 22);
+            this.txtName.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 14);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Config :";
+            // 
+            // txtNumberConfig
+            // 
+            this.txtNumberConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtNumberConfig.Location = new System.Drawing.Point(92, 112);
+            this.txtNumberConfig.Name = "txtNumberConfig";
+            this.txtNumberConfig.Size = new System.Drawing.Size(238, 22);
+            this.txtNumberConfig.TabIndex = 3;
+            this.txtNumberConfig.Text = "1";
+            // 
+            // btnGetConfigs
+            // 
+            this.btnGetConfigs.Location = new System.Drawing.Point(6, 345);
+            this.btnGetConfigs.Name = "btnGetConfigs";
+            this.btnGetConfigs.Size = new System.Drawing.Size(337, 33);
+            this.btnGetConfigs.TabIndex = 9;
+            this.btnGetConfigs.Text = "Get Configs";
+            this.btnGetConfigs.UseVisualStyleBackColor = true;
+            this.btnGetConfigs.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 14);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Total Traffic :";
             // 
             // txtTotalTraffic
             // 
             this.txtTotalTraffic.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtTotalTraffic.Location = new System.Drawing.Point(92, 81);
+            this.txtTotalTraffic.Location = new System.Drawing.Point(92, 109);
             this.txtTotalTraffic.Name = "txtTotalTraffic";
             this.txtTotalTraffic.Size = new System.Drawing.Size(236, 22);
             this.txtTotalTraffic.TabIndex = 7;
+            this.txtTotalTraffic.Text = "30";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 293);
+            this.ClientSize = new System.Drawing.Size(359, 387);
             this.Controls.Add(this.gbNeeds);
+            this.Controls.Add(this.btnGetConfigs);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.bgInformation);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,12 +285,17 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.GroupBox gbNeeds;
-        private System.Windows.Forms.TextBox txtTotalTraffic;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtTo;
         private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNumberConfig;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnGetConfigs;
+        private System.Windows.Forms.TextBox txtTotalTraffic;
+        private System.Windows.Forms.Label label5;
     }
 }
 
