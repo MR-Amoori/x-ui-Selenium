@@ -29,6 +29,7 @@ namespace x_ui_Selenium
         private void btnStart_Click(object sender, EventArgs e)
         {
             chrome.Navigate().GoToUrl(txtUrl.Text);
+            chrome.Manage().Window.Maximize();
 
             Sleep();
 
@@ -57,18 +58,22 @@ namespace x_ui_Selenium
 
             Sleep();
 
-            var actionEdit = chrome.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[1]"));
+            var actionEdit = chrome.FindElement(By.XPath("//li[text()[normalize-space()='Edit']]"));
             actionEdit.Click();
 
             Sleep();
 
-            var addClient = chrome.FindElement(By.XPath("/html/body/div[4]/div/div[2]/div/div[2]/div[2]/form[2]/span/svg/path[2]"));
-            addClient.Click();
+            for (int i = 1; i <= 10; i++)
+            {
+                var addClient = chrome.FindElement(By.XPath("//label[text()='Clients']/following-sibling::span"));
+                addClient.Click();
 
-            Sleep();
-        
-            var clientName = chrome.FindElement(By.XPath("/html/body/div[4]/div/div[2]"));
-            clientName.SendKeys("The Name Of God");
+                Sleep();
+
+                var clientName = chrome.FindElement(By.XPath($"(//div[@role='button'])[{i + 2}]"));
+                clientName.Click();
+            }
+
 
             Sleep();
         }

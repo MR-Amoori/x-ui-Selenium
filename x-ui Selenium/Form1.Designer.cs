@@ -92,7 +92,7 @@
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(238, 22);
             this.txtUrl.TabIndex = 0;
-            this.txtUrl.Text = "https://ir2.hectortube.shop:2053/";
+            this.txtUrl.Text = "https://s1.mohsenvahedi.top:2053/";
             // 
             // txtUsername
             // 
