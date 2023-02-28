@@ -44,7 +44,7 @@ namespace x_ui_Selenium
             var loginButton = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[3]/div/div/span/button"));
             loginButton.Click();
 
-            Sleep(2000);
+            Sleep(5000);
 
             var inboundslistButton = chrome.FindElement(By.XPath("/html/body/section/aside/div/ul/li[2]"));
             inboundslistButton.Click();
@@ -61,7 +61,9 @@ namespace x_ui_Selenium
 
             Sleep();
 
-            for (int i = 1; i <= 100; i++)
+            string expryDate = DateTime.Now.AddDays(Convert.ToInt32(txtExpryDate.Text)).ToString("yyyy-MM-dd 00:00");
+
+            for (int i = Convert.ToInt32(txtFrom.Text) - 1; i <= Convert.ToInt32(txtTo.Text); i++)
             {
                 var addClient = chrome.FindElement(By.XPath("//label[text()='Clients']/following-sibling::span"));
                 addClient.Click();
@@ -72,14 +74,14 @@ namespace x_ui_Selenium
 
                 Sleep();
 
-                var clientName = chrome.FindElement(By.XPath($"//div[@id='inbound-modal']/div[2]/div[1]/div[2]/div[2]/form[2]/div[{i+1}]/div[1]/div[2]/div[1]/form[1]/div[1]/div[2]/div[1]/span[1]/input[1]"));
+                var clientName = chrome.FindElement(By.XPath($"//div[@id='inbound-modal']/div[2]/div[1]/div[2]/div[2]/form[2]/div[{i + 1}]/div[1]/div[2]/div[1]/form[1]/div[1]/div[2]/div[1]/span[1]/input[1]"));
                 clientName.Clear();
                 clientName.SendKeys($"{i}");
 
                 Sleep();
 
-                var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i+1}]"));
-                clientTotalTraffic.SendKeys("30");
+                var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i + 1}]"));
+                clientTotalTraffic.SendKeys(txtTotalTraffic.Text);
 
                 Sleep();
 
