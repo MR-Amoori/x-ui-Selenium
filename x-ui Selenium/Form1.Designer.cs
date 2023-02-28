@@ -42,11 +42,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.txtTo = new System.Windows.Forms.TextBox();
             this.txtTotalTraffic = new System.Windows.Forms.TextBox();
-            this.txtExpryDate = new System.Windows.Forms.TextBox();
             this.bgInformation.SuspendLayout();
             this.gbNeeds.SuspendLayout();
             this.SuspendLayout();
@@ -144,7 +142,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(10, 311);
+            this.btnStart.Location = new System.Drawing.Point(10, 286);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(337, 33);
             this.btnStart.TabIndex = 5;
@@ -155,17 +153,15 @@
             // gbNeeds
             // 
             this.gbNeeds.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.gbNeeds.Controls.Add(this.txtExpryDate);
             this.gbNeeds.Controls.Add(this.txtTotalTraffic);
             this.gbNeeds.Controls.Add(this.txtTo);
             this.gbNeeds.Controls.Add(this.txtFrom);
-            this.gbNeeds.Controls.Add(this.label4);
             this.gbNeeds.Controls.Add(this.label3);
             this.gbNeeds.Controls.Add(this.label2);
             this.gbNeeds.Controls.Add(this.label1);
             this.gbNeeds.Location = new System.Drawing.Point(13, 164);
             this.gbNeeds.Name = "gbNeeds";
-            this.gbNeeds.Size = new System.Drawing.Size(334, 141);
+            this.gbNeeds.Size = new System.Drawing.Size(334, 116);
             this.gbNeeds.TabIndex = 6;
             this.gbNeeds.TabStop = false;
             this.gbNeeds.Text = "Need : ";
@@ -197,15 +193,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Total Traffic :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 14);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Expry Date :";
-            // 
             // txtFrom
             // 
             this.txtFrom.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -230,19 +217,11 @@
             this.txtTotalTraffic.Size = new System.Drawing.Size(236, 22);
             this.txtTotalTraffic.TabIndex = 7;
             // 
-            // txtExpryDate
-            // 
-            this.txtExpryDate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtExpryDate.Location = new System.Drawing.Point(92, 109);
-            this.txtExpryDate.Name = "txtExpryDate";
-            this.txtExpryDate.Size = new System.Drawing.Size(236, 22);
-            this.txtExpryDate.TabIndex = 8;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 354);
+            this.ClientSize = new System.Drawing.Size(359, 327);
             this.Controls.Add(this.gbNeeds);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.bgInformation);
@@ -273,11 +252,9 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.GroupBox gbNeeds;
-        private System.Windows.Forms.TextBox txtExpryDate;
         private System.Windows.Forms.TextBox txtTotalTraffic;
         private System.Windows.Forms.TextBox txtTo;
         private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

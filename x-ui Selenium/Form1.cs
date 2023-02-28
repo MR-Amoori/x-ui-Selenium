@@ -54,14 +54,11 @@ namespace x_ui_Selenium
             var actionConfig = chrome.FindElement(By.XPath("/html/body/section/section/main/div/div/div[2]/div[2]/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a"));
             actionConfig.Click();
 
-            Sleep();
 
             var actionEdit = chrome.FindElement(By.XPath("//li[text()[normalize-space()='Edit']]"));
             actionEdit.Click();
 
             Sleep();
-
-            string expryDate = DateTime.Now.AddDays(Convert.ToInt32(txtExpryDate.Text)).ToString("yyyy-MM-dd 00:00");
 
             for (int i = Convert.ToInt32(txtFrom.Text) - 1; i <= Convert.ToInt32(txtTo.Text); i++)
             {
@@ -78,17 +75,11 @@ namespace x_ui_Selenium
                 clientName.Clear();
                 clientName.SendKeys($"{i}");
 
-                Sleep();
-
                 var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i + 1}]"));
                 clientTotalTraffic.SendKeys(txtTotalTraffic.Text);
 
-                Sleep();
-
             }
 
-
-            Sleep();
         }
 
 
