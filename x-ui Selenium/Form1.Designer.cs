@@ -35,8 +35,6 @@
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPath = new System.Windows.Forms.Label();
-            this.txtPath = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.gbNeeds = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,9 +50,7 @@
             // bgInformation
             // 
             this.bgInformation.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bgInformation.Controls.Add(this.txtPath);
             this.bgInformation.Controls.Add(this.txtPassword);
-            this.bgInformation.Controls.Add(this.lblPath);
             this.bgInformation.Controls.Add(this.txtUsername);
             this.bgInformation.Controls.Add(this.txtUrl);
             this.bgInformation.Controls.Add(this.lblPassword);
@@ -62,7 +58,7 @@
             this.bgInformation.Controls.Add(this.lblUrl);
             this.bgInformation.Location = new System.Drawing.Point(13, 12);
             this.bgInformation.Name = "bgInformation";
-            this.bgInformation.Size = new System.Drawing.Size(336, 146);
+            this.bgInformation.Size = new System.Drawing.Size(336, 115);
             this.bgInformation.TabIndex = 0;
             this.bgInformation.TabStop = false;
             this.bgInformation.Text = "Panel Information : ";
@@ -122,27 +118,9 @@
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "admin12";
             // 
-            // lblPath
-            // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(17, 120);
-            this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(40, 14);
-            this.lblPath.TabIndex = 2;
-            this.lblPath.Text = "Path :";
-            // 
-            // txtPath
-            // 
-            this.txtPath.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtPath.Location = new System.Drawing.Point(92, 112);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(238, 22);
-            this.txtPath.TabIndex = 4;
-            this.txtPath.Text = "C:\\Users\\moham\\OneDrive\\دسکتاپ";
-            // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(10, 286);
+            this.btnStart.Location = new System.Drawing.Point(10, 255);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(337, 33);
             this.btnStart.TabIndex = 5;
@@ -159,7 +137,7 @@
             this.gbNeeds.Controls.Add(this.label3);
             this.gbNeeds.Controls.Add(this.label2);
             this.gbNeeds.Controls.Add(this.label1);
-            this.gbNeeds.Location = new System.Drawing.Point(13, 164);
+            this.gbNeeds.Location = new System.Drawing.Point(13, 133);
             this.gbNeeds.Name = "gbNeeds";
             this.gbNeeds.Size = new System.Drawing.Size(334, 116);
             this.gbNeeds.TabIndex = 6;
@@ -221,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 327);
+            this.ClientSize = new System.Drawing.Size(359, 293);
             this.Controls.Add(this.gbNeeds);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.bgInformation);
@@ -243,9 +221,7 @@
 
         private System.Windows.Forms.GroupBox bgInformation;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblPassword;

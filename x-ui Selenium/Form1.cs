@@ -23,7 +23,7 @@ namespace x_ui_Selenium
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            chrome = new ChromeDriver(txtPath.Text);
+            chrome = new ChromeDriver(Application.StartupPath);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
