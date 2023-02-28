@@ -31,27 +31,25 @@ namespace x_ui_Selenium
             chrome.Navigate().GoToUrl(txtUrl.Text);
             chrome.Manage().Window.Maximize();
 
-            Sleep();
+            Sleep(2000);
 
             var usernameElement = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[1]/div/div/span/span/input"));
             usernameElement.SendKeys(txtUsername.Text);
 
-            Sleep();
 
             var passwordElement = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[2]/div/div/span/span/input"));
             passwordElement.SendKeys(txtPassword.Text);
 
-            Sleep();
 
             var loginButton = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[3]/div/div/span/button"));
             loginButton.Click();
 
-            Sleep();
+            Sleep(2000);
 
             var inboundslistButton = chrome.FindElement(By.XPath("/html/body/section/aside/div/ul/li[2]"));
             inboundslistButton.Click();
 
-            Sleep();
+            Sleep(2000);
 
             var actionConfig = chrome.FindElement(By.XPath("/html/body/section/section/main/div/div/div[2]/div[2]/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a"));
             actionConfig.Click();
@@ -63,15 +61,28 @@ namespace x_ui_Selenium
 
             Sleep();
 
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 var addClient = chrome.FindElement(By.XPath("//label[text()='Clients']/following-sibling::span"));
                 addClient.Click();
 
+
+                var client = chrome.FindElement(By.XPath($"(//div[@role='button'])[{i + 2}]"));
+                client.Click();
+
                 Sleep();
 
-                var clientName = chrome.FindElement(By.XPath($"(//div[@role='button'])[{i + 2}]"));
-                clientName.Click();
+                var clientName = chrome.FindElement(By.XPath($"//div[@id='inbound-modal']/div[2]/div[1]/div[2]/div[2]/form[2]/div[{i+1}]/div[1]/div[2]/div[1]/form[1]/div[1]/div[2]/div[1]/span[1]/input[1]"));
+                clientName.Clear();
+                clientName.SendKeys($"{i}");
+
+                Sleep();
+
+                var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i+1}]"));
+                clientTotalTraffic.SendKeys("30");
+
+                Sleep();
+
             }
 
 
