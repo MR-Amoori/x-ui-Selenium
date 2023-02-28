@@ -35,7 +35,7 @@
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.gbNeeds = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@
             this.btnGetConfigs = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotalTraffic = new System.Windows.Forms.TextBox();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.listConfigs = new System.Windows.Forms.ListBox();
             this.bgInformation.SuspendLayout();
             this.gbNeeds.SuspendLayout();
             this.SuspendLayout();
@@ -125,15 +127,15 @@
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "admin12";
             // 
-            // btnStart
+            // btnLogin
             // 
-            this.btnStart.Location = new System.Drawing.Point(6, 306);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(337, 33);
-            this.btnStart.TabIndex = 8;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnLogin.Location = new System.Drawing.Point(10, 306);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(337, 33);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // gbNeeds
             // 
@@ -225,13 +227,13 @@
             // 
             // btnGetConfigs
             // 
-            this.btnGetConfigs.Location = new System.Drawing.Point(6, 345);
+            this.btnGetConfigs.Location = new System.Drawing.Point(10, 384);
             this.btnGetConfigs.Name = "btnGetConfigs";
             this.btnGetConfigs.Size = new System.Drawing.Size(337, 33);
             this.btnGetConfigs.TabIndex = 9;
             this.btnGetConfigs.Text = "Get Configs";
             this.btnGetConfigs.UseVisualStyleBackColor = true;
-            this.btnGetConfigs.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnGetConfigs.Click += new System.EventHandler(this.btnGetConfigs_Click);
             // 
             // label5
             // 
@@ -251,14 +253,35 @@
             this.txtTotalTraffic.TabIndex = 7;
             this.txtTotalTraffic.Text = "30";
             // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Location = new System.Drawing.Point(10, 345);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(337, 33);
+            this.btnAddUser.TabIndex = 9;
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // listConfigs
+            // 
+            this.listConfigs.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listConfigs.FormattingEnabled = true;
+            this.listConfigs.Location = new System.Drawing.Point(10, 423);
+            this.listConfigs.Name = "listConfigs";
+            this.listConfigs.Size = new System.Drawing.Size(337, 199);
+            this.listConfigs.TabIndex = 10;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 387);
+            this.ClientSize = new System.Drawing.Size(359, 632);
+            this.Controls.Add(this.listConfigs);
             this.Controls.Add(this.gbNeeds);
+            this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnGetConfigs);
-            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.bgInformation);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -277,7 +300,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox bgInformation;
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtUrl;
@@ -296,6 +319,8 @@
         private System.Windows.Forms.Button btnGetConfigs;
         private System.Windows.Forms.TextBox txtTotalTraffic;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.ListBox listConfigs;
     }
 }
 

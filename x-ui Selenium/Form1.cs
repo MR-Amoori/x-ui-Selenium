@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.IO;
 
 namespace x_ui_Selenium
 {
@@ -26,7 +27,7 @@ namespace x_ui_Selenium
             chrome = new ChromeDriver(Application.StartupPath);
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             chrome.Navigate().GoToUrl(txtUrl.Text);
             chrome.Manage().Window.Maximize();
@@ -51,6 +52,11 @@ namespace x_ui_Selenium
 
             Sleep(5000);
 
+        }
+
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
             var actionConfig = chrome.FindElement(By.XPath($"/html/body/section/section/main/div/div/div[2]/div[2]/div/div/div/div/div/div/div/table/tbody/tr[{txtNumberConfig.Text}]/td[2]/a"));
             actionConfig.Click();
 
@@ -66,29 +72,58 @@ namespace x_ui_Selenium
                 var addClient = chrome.FindElement(By.XPath("//label[text()='Clients']/following-sibling::span"));
                 addClient.Click();
 
-                Sleep();
+                Sleep(250);
 
-                var client = chrome.FindElement(By.XPath($"(//div[@role='button'])[{i + 2}]"));
+                var client = chrome.FindElement(By.XPath($"(//div[@class='ant-collapse-header'])[{i}]"));
                 client.Click();
 
-                Sleep();
-                                     
-                var clientName = chrome.FindElement(By.XPath($"//div[@id='inbound-modal']/div[2]/div[1]/div[2]/div[2]/form[2]/div[{i}]/div[1]/div[2]/div[1]/form[1]/div[1]/div[2]/div[1]/span[1]/input[1]"));
+                Sleep(250);
+                                                                                        
+                var clientName = chrome.FindElement(By.CssSelector($"div#inbound-modal>div:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(2)>form:nth-of-type(2)>div:nth-of-type({i})>div>div:nth-of-type(2)>div>form>div>div:nth-of-type(2)>div>span>input"));
                 clientName.Clear();
-                clientName.SendKeys($"{txtName.Text}-{i-1}");
+                clientName.SendKeys($"{txtName.Text}-{i - 1}");
 
                 var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i}]"));
                 clientTotalTraffic.SendKeys(txtTotalTraffic.Text);
 
             }
-
         }
 
+
+        private void btnGetConfigs_Click(object sender, EventArgs e)
+        {
+            List<string> configs = new List<string>();
+
+            try
+            {
+                for (int i = 0; i <= 999; i++)
+                {
+                    var plussElement = chrome.FindElement(By.XPath($"//td[@class='ant-table-row-expand-icon-cell']//div[1]"));
+                    plussElement.Click();
+
+                    var qrElement = chrome.FindElement(By.XPath($"/html/body/section/section/main/div/div/div[2]/div[2]/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/div/div/div/div/div/table/tbody/tr[{i + 1}]/td[5]"));
+                    configs.Add($"vless://{qrElement.Text}@s1.mohsenvahedi.top:2087?type=grpc&security=tls&serviceName=&sni=s1.mohsenvahedi.top&flow=#NameDN-");
+
+                    Sleep(3000);
+                }
+            }
+            catch
+            {
+                string path = Application.StartupPath + "Result.txt";
+
+                foreach (string config in configs)
+                {
+                    File.WriteAllText(path, config);
+                }
+            }
+        }
 
         private static void Sleep(int seconds = 1000)
         {
             Thread.Sleep(seconds);
         }
+
+
 
     }
 }
