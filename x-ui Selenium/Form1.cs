@@ -20,6 +20,8 @@ namespace x_ui_Selenium
         private void frmMain_Load(object sender, EventArgs e)
         {
             chrome = new ChromeDriver(Application.StartupPath);
+            tabControl1.TabPages[0].Text = "Panel";
+            tabControl1.TabPages[1].Text = "Telegram Bot";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
