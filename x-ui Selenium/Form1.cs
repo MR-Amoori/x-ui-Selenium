@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.IO;
-using System.Linq.Expressions;
 
 namespace x_ui_Selenium
 {
@@ -30,14 +24,14 @@ namespace x_ui_Selenium
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Repeat:
+        Repeat:
 
             try
             {
                 chrome.Navigate().GoToUrl(txtUrl.Text + ":" + txtPort.Text);
                 chrome.Manage().Window.Maximize();
 
-                Sleep(2000);
+                Sleep();
 
                 var usernameElement = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[1]/div/div/span/span/input"));
                 usernameElement.SendKeys(txtUsername.Text);
@@ -50,24 +44,21 @@ namespace x_ui_Selenium
                 var loginButton = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[3]/div/div/span/button"));
                 loginButton.Click();
 
-                Sleep(5000);
+                Sleep();
 
                 var inboundslistButton = chrome.FindElement(By.XPath("/html/body/section/aside/div/ul/li[2]"));
                 inboundslistButton.Click();
-
-                Sleep();
             }
-            catch 
+            catch
             {
                 goto Repeat;
             }
 
         }
 
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            Repeat:
+        Repeat:
 
             try
             {
@@ -80,8 +71,12 @@ namespace x_ui_Selenium
 
                 Sleep();
 
+                pgBar.Maximum = int.Parse(txtTo.Text) - int.Parse(txtFrom.Text);
+                int number = 1;
+
                 for (int i = Convert.ToInt32(txtFrom.Text); i <= Convert.ToInt32(txtTo.Text); i++)
                 {
+                    pgBar.Value = number;
 
                     var addClient = chrome.FindElement(By.XPath("//label[text()='Clients']/following-sibling::span"));
                     addClient.Click();
@@ -100,9 +95,10 @@ namespace x_ui_Selenium
                     var clientTotalTraffic = chrome.FindElement(By.XPath($"(//input[@class='ant-input-number-input'])[{i}]"));
                     clientTotalTraffic.SendKeys(txtTotalTraffic.Text);
 
+                    number++;
                 }
             }
-            catch 
+            catch
             {
                 chrome.Navigate().Refresh();
                 Sleep();
@@ -110,11 +106,10 @@ namespace x_ui_Selenium
             }
         }
 
-
         private void btnGetConfigs_Click(object sender, EventArgs e)
         {
             List<string> configs = new List<string>();
-
+            int number = 1;
             try
             {
                 var plussElement = chrome.FindElement(By.XPath($"//td[@class='ant-table-row-expand-icon-cell']//div[1]"));
@@ -122,23 +117,26 @@ namespace x_ui_Selenium
 
                 for (int i = 0; i <= 999; i++)
                 {
+                    pgBar.Value = number;
                     var qrElement = chrome.FindElement(By.XPath($"/html/body/section/section/main/div/div/div[2]/div[2]/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/div/div/div/div/div/table/tbody/tr[{i + 1}]/td[5]"));
                     configs.Add($"vless://{qrElement.Text}@{txtUrl.Text}:{txtPort.Text}?type=grpc&security=tls&serviceName=&sni=dns.mohsenvahedi.top&flow=#NameDN-");
-                   
+                    number++;
                 }
             }
             catch
             {
-                //string path =  "Result.txt";
-                //StringBuilder sbResult = new StringBuilder();
-                //int number = 1;
-                //foreach (string config in configs)
-                //{
-                //    sbResult.Append(number.ToString());
-                //    sbResult.AppendLine(config);
-                //    sbResult.AppendLine();  
-                //}
-                //File.WriteAllText(path, config);
+                string path = "Result.txt";
+                StringBuilder sbResult = new StringBuilder();
+                number = 1;
+                foreach (string config in configs)
+                {
+                    pgBar.Value = number;
+                    sbResult.Append("Config " + number.ToString() + " : ");
+                    sbResult.AppendLine(config);
+                    sbResult.AppendLine();
+                    number++;
+                }
+                File.WriteAllText(path, sbResult.ToString());
             }
         }
 
@@ -146,8 +144,6 @@ namespace x_ui_Selenium
         {
             Thread.Sleep(seconds);
         }
-
-
 
     }
 }

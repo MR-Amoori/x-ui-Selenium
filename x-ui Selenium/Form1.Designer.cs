@@ -31,9 +31,11 @@
             this.bgInformation = new System.Windows.Forms.GroupBox();
             this.txtNumberConfig = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblUrl = new System.Windows.Forms.Label();
@@ -49,8 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnGetConfigs = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPort = new System.Windows.Forms.TextBox();
+            this.pgBar = new System.Windows.Forms.ProgressBar();
             this.bgInformation.SuspendLayout();
             this.gbNeeds.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,15 @@
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "admin12";
             // 
+            // txtPort
+            // 
+            this.txtPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtPort.Location = new System.Drawing.Point(92, 56);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(238, 22);
+            this.txtPort.TabIndex = 1;
+            this.txtPort.Text = "2053";
+            // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -120,6 +130,15 @@
             this.txtUrl.Size = new System.Drawing.Size(238, 22);
             this.txtUrl.TabIndex = 0;
             this.txtUrl.Text = "https://s1.mohsenvahedi.top";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 14);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Port :";
             // 
             // lblPassword
             // 
@@ -266,29 +285,20 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // label3
+            // pgBar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 14);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Port :";
-            // 
-            // txtPort
-            // 
-            this.txtPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtPort.Location = new System.Drawing.Point(92, 56);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(238, 22);
-            this.txtPort.TabIndex = 1;
-            this.txtPort.Text = "2053";
+            this.pgBar.Location = new System.Drawing.Point(12, 459);
+            this.pgBar.Maximum = 150;
+            this.pgBar.Name = "pgBar";
+            this.pgBar.Size = new System.Drawing.Size(337, 23);
+            this.pgBar.TabIndex = 10;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 477);
+            this.ClientSize = new System.Drawing.Size(359, 490);
+            this.Controls.Add(this.pgBar);
             this.Controls.Add(this.gbNeeds);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnGetConfigs);
@@ -333,6 +343,7 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar pgBar;
     }
 }
 
