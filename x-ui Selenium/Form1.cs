@@ -8,6 +8,7 @@ using OpenQA.Selenium.Chrome;
 using System.IO;
 using Telegram.Bot.Types;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
 
 namespace x_ui_Selenium
 {
@@ -35,7 +36,7 @@ namespace x_ui_Selenium
                 chrome.Navigate().GoToUrl("https://" + txtSubDomain.Text + "." + txtUrl.Text + ":" + txtPort.Text);
                 chrome.Manage().Window.Maximize();
 
-                Sleep(10000);
+                Sleep(5000);
 
                 var usernameElement = chrome.FindElement(By.XPath("/html/body/section/main/div[2]/div/form/div[1]/div/div/span/span/input"));
                 usernameElement.SendKeys(txtUsername.Text);
@@ -187,15 +188,10 @@ namespace x_ui_Selenium
                         }
                         catch
                         {
-                            int number = 1;
                             foreach (string config in configs)
                             {
-                                StringBuilder sbResult = new StringBuilder();
-                                sbResult.AppendLine($"Config {number}:");
-                                sbResult.AppendLine(config);
-                                bot.SendTextMessageAsync(chatId, sbResult.ToString());
+                                bot.SendTextMessageAsync(chatId, config);
                                 Sleep(2000);
-                                number++;
                             }
                         }
 
